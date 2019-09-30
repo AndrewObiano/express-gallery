@@ -1,0 +1,15 @@
+<h1 class="indexHead">Post a new photo</h1>
+<a href="/"><button>GO BACK</button></a>
+<hr class="line">
+
+<form id="myInput" action="/gallery" method="post">
+    URL: <input type="text" name="image_url" class="twelve columns"><br>
+    Description: <input type="text" name="description" class="twelve columns"><br>
+    User: <input type="number" name="user_id" class="twelve columns"><br>
+
+    <input class="button-primary" type="submit" value="Submit">
+</form>
+
+{{#if paramsNotFilled}}
+<p>URL, description, and user are required.</p>
+{{/if}}

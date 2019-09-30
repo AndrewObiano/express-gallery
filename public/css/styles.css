@@ -1,0 +1,26 @@
+body {
+  background-color: white; }
+
+img {
+  max-width: 100%;
+  max-height: 100%; }
+
+.header {
+  display: flex;
+  border: 2px solid black;
+  padding: 3px; }
+  .header .actualTitle {
+    padding: 3px; }
+  .header .caption {
+    padding: 3px; }
+
+.largePic {
+  height: 50vh;
+  width: 80vh; }
+
+.smallPics {
+  display: flex; }
+
+.eaSmallPics {
+  height: 50vh;
+  width: 50vh; }

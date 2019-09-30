@@ -1,0 +1,12 @@
+<h1 class="indexHead">Edit</h1>
+<a href="/"><button>GO BACK</button></a>
+<hr class="line">
+
+<form id="myInput" action="/gallery/{{id}}/?_method=put" method="post">
+    URL: <input type="text" name="image_url" value="{{image_url}}" class="twelve columns"><br>
+    Description: <input type="text" name="description" value="{{description}}" class="twelve columns"><br>
+    <input type="hidden" name="user_id" value="{{user_id}}" class="twelve columns"><br>
+    <input class="button-primary" type="submit" value="Submit">
+</form>
+
+{{messsage}}

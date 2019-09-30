@@ -1,0 +1,41 @@
+{{#if loggedIn}}
+<a href="/logout"><button>LOGOUT</button></a>
+{{else}}
+<a href="/login.html"><button>LOGIN</button></a>
+{{/if}}
+<a href="/register.html"><button>REGISTER</button></a>
+<a href="/gallery/new"><button>NEW PHOTO</button></a>
+
+<div class="header">
+    <div class="actualTitle">
+        <h1>_GALLERIA</h1>
+    </div>
+    <div class="caption">
+        <p>Welcome to our online portfolio, we are a small group of passionate photographers, looking to change and
+            create
+            amazing digital images to inspire others to follow in our innovative steps.</p>
+    </div>
+</div>
+
+<div class="mainGallery">
+
+    <div class="largePic">
+        <a href="/gallery/{{main_id}}">
+            <img src="{{main_url}}" alt="">
+        </a>
+    </div>
+
+    <div class="smallPics">
+        {{#each photos}}
+        <div class="eaSmallPics">
+            <a href="/gallery/{{id}}">
+                <img src="{{image_url}}" alt="">
+            </a>
+            <h3>Posted by {{user.username}}</h3>
+            <p>{{description}}</p>
+        </div>
+        {{/each}}
+    </div>
+
+
+</div>
