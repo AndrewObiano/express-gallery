@@ -23,7 +23,6 @@ require("dotenv").config();
 const client = redis.createClient({ url: process.env.REDIS_URL });
 
 app.use(express.static(path.join(__dirname, "public")));
-// app.use(express.static("./public"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -56,8 +55,6 @@ passport.use(
     return new User({ username: username })
       .fetch()
       .then(user => {
-        console.log(user);
-
         if (user === null) {
           return done(null, false, { message: "bad username or password" });
         } else {
@@ -76,7 +73,6 @@ passport.use(
         }
       })
       .catch(err => {
-        console.log("error: ", err);
         return done(null, false, { message: "bad username or password" });
       });
   })
@@ -84,15 +80,12 @@ passport.use(
 
 passport.serializeUser(function(user, done) {
   // creates the key session pair object
-  console.log("serializing");
 
   return done(null, { id: user.id, username: user.username });
 });
 
 passport.deserializeUser(function(user, done) {
   // applies that key session to other things
-  console.log("deserializing");
-  console.log(user);
   return done(null, user);
 });
 
@@ -107,12 +100,12 @@ app.use(
 app.post("/register", (req, res) => {
   bcrypt.genSalt(saltRounds, (err, salt) => {
     if (err) {
-      console.log(err);
+      res.render("error", { err: err });
     } // return 500
 
     bcrypt.hash(req.body.password, salt, (err, hash) => {
       if (err) {
-        console.log(err);
+        res.render("error", { err: err });
       } // return 500
 
       return new User({
@@ -121,12 +114,10 @@ app.post("/register", (req, res) => {
       })
         .save()
         .then(user => {
-          console.log(user);
           return res.redirect("/login.html");
         })
         .catch(err => {
-          console.log(err);
-          res.render("404file");
+          res.render("error", { err: err });
         });
     });
   });
@@ -137,7 +128,6 @@ app.get("/", (req, res) => {
     .orderBy("id", "ASC")
     .fetchAll({ withRelated: ["user"] })
     .then(results => {
-      console.log(results.toJSON()[0]);
       if (req.user) {
         res.render("gallery", {
           photos: results.toJSON().slice(1),
