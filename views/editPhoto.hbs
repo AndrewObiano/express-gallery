@@ -1,0 +1,26 @@
+<div class="userContainer">
+    <div class="userContents">
+        <h1 class="indexHead">_Edit your photo</h1>
+
+        <form id="myInput" action="/gallery/{{id}}/?_method=put" method="post">
+            <label for="image_url">URL</label><br />
+            <input type="text" name="image_url" value="{{image_url}}">
+            <label for="description">Description</label><br />
+            <input type="text" name="description" value="{{description}}">
+
+            <input type="hidden" name="user_id" value="{{user_id}}">
+
+            <input class="button-primary" type="submit" value="Submit">
+        </form>
+
+        <a href="/"><button>GO BACK</button></a>
+
+        <form action="/gallery/{{id}}/?_method=delete" method="post">
+            <input type="hidden" name="{{id}}" value="{{id}}">
+            <input id="delete" type="submit" value="Delete">
+        </form>
+    </div>
+</div>
+
+
+{{messsage}}

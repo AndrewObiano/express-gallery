@@ -1,0 +1,22 @@
+<div class="userContainer">
+    <div class="userContents">
+        <h3 class="indexHead">_Post a new photo</h3>
+
+        <form id="myInput" action="/gallery" method="post">
+            <label for="image_url">URL</label> <br />
+            <input type="text" name="image_url">
+            <label for="description">Description</label><br />
+            <input type="text" name="description">
+
+            <input type="hidden" name="user_id" value={{userID}}>
+
+            <input class="button-primary" type="submit" value="Submit">
+        </form>
+
+        <a href="/"><button>GO BACK</button></a>
+        {{#if paramsNotFilled}}
+        <p class="message">URL and description are required. Make sure your URL is also less than 255 characters long.
+        </p>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="hero">
+    <div class="header">
+        <div class="actualTitle">
+            <h1>_GALLERIA</h1>
+        </div>
+        <div class="caption">
+            <p>Welcome to my pretend online gallery. We are a small group of passionate photographers, looking to change
+                and
+                create
+                amazing digital images to inspire others to follow in our innovative steps.</p>
+        </div>
+    </div>
+
+    <div class="functionButt">
+        <div class="getStarted">
+            <h1>_GET STARTED</h1>
+        </div>
+        <div class="mainButtons">
+            {{#if loggedIn}}
+            <a href="/logout"><button>LOGOUT</button></a>
+            {{else}}
+            <a href="/login.html"><button>LOGIN</button></a>
+            {{/if}}
+            <a href="/register.html"><button>REGISTER</button></a>
+            <a href="/gallery/new"><button>NEW PHOTO</button></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="mainGallery">
+
+    <h1 class="largePicHeader">
+        _CHECK OUT OUR WORK
+    </h1>
+
+    <div class="largePic">
+        <a href="/gallery/{{main_id}}">
+            <img class="largePicTarget" src="{{main_url}}" alt="">
+        </a>
+    </div>
+
+    <div class="smallPics">
+        {{#each photos}}
+        <div class="eaSmallPics">
+            <a href="/gallery/{{id}}">
+                <img class="image" src="{{image_url}}" alt="">
+            </a>
+            <h3 class="poster">Posted by {{user.username}}</h3>
+            <p class="description">{{description}}</p>
+        </div>
+        {{/each}}
+    </div>
+
+
+</div>
