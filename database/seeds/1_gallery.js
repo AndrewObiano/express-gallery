@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           image_url:
-            "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            "https://images.pexels.com/photos/2955819/pexels-photo-2955819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           description:
             "Burritos are filled with a savory filling, most often a meat such as chicken, beef, or pork, and often include a large array of other ingredients such as rice, cooked beans (either whole or refried), vegetables such as lettuce and tomatoes, cheese, and condiments such as salsa, pico de gallo, guacamole or crema.",
           user_id: 1

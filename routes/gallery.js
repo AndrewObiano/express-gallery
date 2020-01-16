@@ -10,17 +10,17 @@ function isAuthenticated(req, res, next) {
 }
 
 router.get("/new", isAuthenticated, (req, res) => {
-  res.render("newPhoto");
+  res.render("newPhoto", { userID: req.user.id });
 });
 
 router.get("/:id", (req, res) => {
   req.db.Gallery.where({ id: req.params.id })
-    .fetchAll({ withRelated: ["user"] })
+    .fetch({ withRelated: ["user"] })
     .then(results => {
       if (results.toJSON().length === 0) {
         throw new Error("Page not found!");
       } else {
-        res.render("photoSingle", results.toJSON()[0]);
+        res.render("photoSingle", results.toJSON());
       }
     })
     .catch(err => {
@@ -29,7 +29,11 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  if (req.body.image_url && req.body.description) {
+  if (
+    req.body.image_url &&
+    req.body.description &&
+    req.body.image_url.length <= 255
+  ) {
     new req.db.Gallery({
       image_url: req.body.image_url,
       description: req.body.description,

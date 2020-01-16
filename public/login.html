@@ -4,22 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Galleria</title>
   </head>
   <body>
-    <h3>Login:</h3>
-    <form action="/login" method="POST">
-      <label for="username">Username:</label><br />
-      <input type="text" name="username" />
+    <div class="userContainer">
+      <div class="userContents">
+        <h3>_LOGIN</h3>
+        <form action="/login" method="POST">
+          <label for="username">_USERNAME</label><br />
+          <input type="text" name="username" />
 
-      <br /><br />
+          <label for="password">_PASSWORD</label><br />
+          <input type="password" name="password" />
 
-      <label for="password">Password:</label><br />
-      <input type="password" name="password" />
-
-      <br /><br />
-
-      <button>Login</button>
-    </form>
+          <button>Login</button>
+        </form>
+        <a href="/"><button>GO BACK</button></a>
+      </div>
+    </div>
   </body>
 </html>
