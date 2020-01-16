@@ -1,3 +1,10 @@
+To view, make sure to have `docker-compose up` while running `node` on server.js
+
+#### Screenshots
+
+![Galleria screenshot 1](https://github.com/andrewobx/express-gallery/blob/master/screenshots/Galleria1.png)
+![Galleria screenshot 2](https://github.com/andrewobx/express-gallery/blob/master/screenshots/Galleria2.png)
+
 Express Gallery
 ===============
 
